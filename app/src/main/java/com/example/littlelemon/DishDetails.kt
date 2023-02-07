@@ -9,6 +9,7 @@ import androidx.compose.material.TextButton
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -19,7 +20,12 @@ fun DishDetails(id: Int) {
     Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
         //TODO: Insert code here
         TopAppBar()
-        Image(painter = painterResource(id = R.drawable.bruschetta), contentDescription = "")
+        Image(
+            painter = painterResource(id = dish.imageResource),
+            contentDescription = "Dish image",
+            modifier = Modifier.fillMaxWidth(),
+            contentScale = ContentScale.FillWidth
+        )
         Column {
             Text(text = "Text 1")
             Text(text = "Text 2")
