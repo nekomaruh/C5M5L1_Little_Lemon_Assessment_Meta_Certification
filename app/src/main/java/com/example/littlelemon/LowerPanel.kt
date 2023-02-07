@@ -53,9 +53,9 @@ fun MenuDish(navController: NavHostController? = null, dish: Dish) {
         //TODO: Insert code here
         Row {
             Column {
-                Text(text = dish.name)
-                Text(text = dish.description)
-                Text(text = dish.price.toString())
+                Text(text = dish.name, style = MaterialTheme.typography.h2)
+                Text(text = dish.description, style = MaterialTheme.typography.body1)
+                Text(text = dish.price.toString(), style = MaterialTheme.typography.body2)
             }
             Image(
                 painter = painterResource(id = dish.imageResource),
