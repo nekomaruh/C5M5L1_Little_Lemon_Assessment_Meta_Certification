@@ -53,12 +53,12 @@ fun MenuDish(navController: NavHostController? = null, dish: Dish) {
         //TODO: Insert code here
         Row {
             Column {
-                Text(text = "Text 1")
-                Text(text = "Text 2")
-                Text(text = "Text 3")
+                Text(text = dish.name)
+                Text(text = dish.description)
+                Text(text = dish.price.toString())
             }
             Image(
-                painter = painterResource(id = R.drawable.bruschetta),
+                painter = painterResource(id = dish.imageResource),
                 contentDescription = ""
             )
         }
