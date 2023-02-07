@@ -6,11 +6,14 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -51,15 +54,26 @@ fun MenuDish(navController: NavHostController? = null, dish: Dish) {
         navController?.navigate(DishDetails.route + "/${dish.id}")
     }) {
         //TODO: Insert code here
-        Row {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(8.dp)
+        ) {
             Column {
                 Text(text = dish.name, style = MaterialTheme.typography.h2)
-                Text(text = dish.description, style = MaterialTheme.typography.body1)
+                Text(
+                    text = dish.description,
+                    style = MaterialTheme.typography.body1,
+                    modifier = Modifier
+                        .fillMaxWidth(.75f)
+                        .padding(vertical = 5.dp)
+                )
                 Text(text = dish.price.toString(), style = MaterialTheme.typography.body2)
             }
             Image(
                 painter = painterResource(id = dish.imageResource),
-                contentDescription = ""
+                contentDescription = "",
+                modifier = Modifier.clip(RoundedCornerShape(10.dp))
             )
         }
     }
